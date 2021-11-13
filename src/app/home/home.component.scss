@@ -1,0 +1,61 @@
+.city-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  .city {
+    width: 25rem;
+    margin: 1rem;
+    &-image {
+      height: 18rem;
+    }
+    &-sys {
+      display: flex;
+      direction: row;
+      width: 18rem;
+      justify-content: space-between;
+      align-items: center;
+      .info {
+        display: flex;
+        align-items: center;
+        img {
+          width: 32px;
+        }
+      }
+      .temperature {
+        img {
+          width: 24px;
+        }
+      }
+    }
+
+    .humidity {
+      display: flex;
+      align-items: center;
+      &-image {
+        width: 24px;
+      }
+    }
+  }
+}
+
+.mat-card {
+  background-color: #343a40;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+}
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}

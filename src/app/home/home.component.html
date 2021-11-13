@@ -1,0 +1,51 @@
+<div class="city-list">
+    <div *ngFor="let city of cities">
+        <mat-card class="city" color="primary">
+            <!-- card header -->
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>{{ city.name | uppercase }}</mat-card-title>
+                <mat-card-subtitle>
+                    <div class="city-sys">
+                        <div class="country">
+                            {{ city?.sys?.country | uppercase }}
+                        </div>
+                        <div class="info sunrise">
+                            <span><img src="assets/svg/sunrise.svg" alt="sunrise" /></span>
+                            {{ city?.sys?.sunrise * 1000 | date: "shortTime" }}
+                        </div>
+                        <div class="info sunset">
+                            <span><img src="assets/svg/sunset.svg" alt="sunset" /></span>
+                            {{ city?.sys?.sunset * 1000 | date: "shortTime" }}
+                        </div>
+                        <div class="info temperature">
+                            <span><img src="assets/svg/teperature-lite.svg" alt="min temp" /></span>
+                            {{city?.main.temp}}
+                        </div>
+                    </div>
+                </mat-card-subtitle>
+            </mat-card-header>
+            <!-- city image -->
+            <img class="city-image" mat-card-image src="assets/images/{{ city.name }}.jpg" [alt]="city.name" />
+            <!-- card content -->
+            <mat-card-content class="content">
+                <div class="description">{{city?.weather[0].description | titlecase}}
+                    <img src="http://openweathermap.org/img/w/{{city?.weather[0].icon}}.png" alt="">
+                </div>
+                <div class="humidity">
+                    Humidity &nbsp;
+                    <span><img class="humidity-image" src="assets/svg/humidity.svg" alt="humidity" /></span>
+                    &nbsp;{{city?.main?.humidity}}
+                </div>
+                <div class="humidity feels">
+                    Feels &nbsp;
+                    <span><img class="humidity-image" src="assets/svg/teperature-lite.svg" alt="humidity" /></span>
+                    &nbsp;{{city?.main?.feels_like}}
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>
+<div *ngIf="loading" class="spinner">
+    <mat-spinner></mat-spinner>
+</div>
